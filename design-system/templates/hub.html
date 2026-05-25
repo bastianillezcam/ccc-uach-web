@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL_URL}}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{META_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+  <meta property="og:image" content="/assets/img/banner-horizontal.jpg">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Centro Comunitario UACh">
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/design-system/tokens.css">
+  <link rel="stylesheet" href="/design-system/components.css">
+
+  <link rel="icon" type="image/png" href="/assets/img/logo-color.png">
+
+  <!-- JSON-LD: CollectionPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{H1_TITLE}}",
+    "description": "{{META_DESCRIPTION}}",
+    "url": "{{CANONICAL_URL}}",
+    "inLanguage": "es-CL",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Centro Comunitario UACh",
+      "logo": { "@type": "ImageObject", "url": "/assets/img/logo-color.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {{BREADCRUMB_SCHEMA_JSON}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  {{TOPBAR_PARTIAL}}
+  {{HEADER_PARTIAL}}
+
+  <main id="main-content">
+    {{BREADCRUMB_PARTIAL}}
+
+    <section class="section">
+      <div class="container container--narrow">
+        <header class="article__header" style="text-align: center; margin: 0 auto var(--space-12);">
+          <p class="article__eyebrow">{{CLUSTER_OR_CATEGORY}}</p>
+          <h1 class="article__title">{{H1_TITLE}}</h1>
+          <p class="lead">{{SUBTITLE_OR_TLDR}}</p>
+        </header>
+
+        <aside class="tldr-box" role="note" aria-label="Resumen rapido">
+          <div class="tldr-box__label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Resumen rapido
+          </div>
+          <p class="tldr-box__content">{{TLDR_TEXT_MAX_60_WORDS}}</p>
+        </aside>
+
+        <div class="article__body">
+          {{CONTENT_HTML_INTRO}}
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-paginas hijas (L3) como cards -->
+    <section class="section section--subtle">
+      <div class="container">
+        <div class="section-title">
+          <h2>Temas dentro de esta seccion</h2>
+        </div>
+        <div class="card-grid card-grid--3">
+          <!-- repeat per L3 child -->
+          <a href="{{CHILD_URL}}" class="card">
+            <div class="card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg>
+            </div>
+            <h3 class="card__title">{{CHILD_TITLE}}</h3>
+            <p class="card__body">{{CHILD_DESCRIPTION}}</p>
+            <span class="card__link">Leer mas</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ inline si la pagina hub tiene preguntas -->
+    {{FAQ_SECTION_OPTIONAL}}
+
+    <section class="section">
+      <div class="container container--narrow">
+        {{CTA_BANNER_PARTIAL}}
+      </div>
+    </section>
+  </main>
+
+  {{FOOTER_PARTIAL}}
+
+  <script>
+    document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+      var nav = document.getElementById('mainNav');
+      var open = nav.classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open);
+    });
+    var y = document.getElementById('currentYear');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

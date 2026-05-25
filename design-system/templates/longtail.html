@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL_URL}}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{META_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+  <meta property="og:image" content="/assets/img/banner-horizontal.jpg">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Centro Comunitario UACh">
+
+  <meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/design-system/tokens.css">
+  <link rel="stylesheet" href="/design-system/components.css">
+
+  <link rel="icon" type="image/png" href="/assets/img/logo-color.png">
+
+  <!-- JSON-LD Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{H1_TITLE}}",
+    "description": "{{META_DESCRIPTION}}",
+    "datePublished": "{{PUBLISHED_DATE_ISO}}",
+    "dateModified": "{{MODIFIED_DATE_ISO}}",
+    "inLanguage": "es-CL",
+    "author": { "@type": "Organization", "name": "Centro Comunitario UACh" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Centro Comunitario UACh",
+      "logo": { "@type": "ImageObject", "url": "/assets/img/logo-color.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{CANONICAL_URL}}" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {{BREADCRUMB_SCHEMA_JSON}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  {{TOPBAR_PARTIAL}}
+  {{HEADER_PARTIAL}}
+
+  <main id="main-content">
+    {{BREADCRUMB_PARTIAL}}
+
+    <article class="article container container--narrow">
+      <header class="article__header">
+        <p class="article__eyebrow">{{CLUSTER_OR_CATEGORY}}</p>
+        <h1 class="article__title">{{H1_TITLE}}</h1>
+        <p class="article__meta">
+          <time datetime="{{MODIFIED_DATE_ISO}}">Actualizado en {{HUMAN_DATE}}</time>
+          · Lectura de {{READING_TIME}} min
+        </p>
+      </header>
+
+      <aside class="tldr-box" role="note" aria-label="Resumen rapido">
+        <div class="tldr-box__label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          Resumen rapido
+        </div>
+        <p class="tldr-box__content">{{TLDR_TEXT_MAX_60_WORDS}}</p>
+      </aside>
+
+      <div class="article__body">
+        {{CONTENT_HTML}}
+      </div>
+
+      <footer class="article__footer">
+        {{CTA_BANNER_PARTIAL}}
+      </footer>
+    </article>
+  </main>
+
+  {{FOOTER_PARTIAL}}
+
+  <script>
+    document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+      var nav = document.getElementById('mainNav');
+      var open = nav.classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open);
+    });
+    var y = document.getElementById('currentYear');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

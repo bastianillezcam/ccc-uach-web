@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Diseno — Centro Comunitario UACh</title>
+  <meta name="description" content="Style guide y libreria de componentes del sitio CCC-UACh">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./tokens.css">
+  <link rel="stylesheet" href="./components.css">
+  <style>
+    .sg-section { padding: var(--space-16) 0; border-bottom: 1px solid var(--border-subtle); }
+    .sg-section h2 { margin-top: 0; }
+    .sg-swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-3); }
+    .sg-swatch { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-subtle); }
+    .sg-swatch__color { height: 80px; }
+    .sg-swatch__meta { padding: var(--space-2) var(--space-3); font-size: var(--text-xs); background: var(--bg-surface); }
+    .sg-swatch__name { font-weight: var(--weight-semibold); display: block; }
+    .sg-swatch__hex { color: var(--text-muted); font-family: var(--font-mono); }
+    .sg-type-row { display: flex; align-items: baseline; gap: var(--space-4); padding: var(--space-3) 0; border-bottom: 1px solid var(--border-subtle); }
+    .sg-type-row__token { width: 100px; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); flex-shrink: 0; }
+    .sg-spacing-row { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-2) 0; font-family: var(--font-mono); font-size: var(--text-sm); }
+    .sg-spacing-row__bar { background: var(--color-primary-400); height: 16px; border-radius: var(--radius-sm); }
+    .sg-component-preview { background: var(--bg-subtle); padding: var(--space-6); border-radius: var(--radius-md); margin-bottom: var(--space-4); border: 1px dashed var(--border-default); }
+    .sg-component-label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); margin-bottom: var(--space-3); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+    .sg-toc { position: sticky; top: var(--space-4); background: var(--bg-surface); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); }
+    .sg-toc ul { list-style: none; padding: 0; margin: 0; }
+    .sg-toc li { margin: 0; }
+    .sg-toc a { display: block; padding: var(--space-2); font-size: var(--text-sm); text-decoration: none; color: var(--text-secondary); border-radius: var(--radius-sm); }
+    .sg-toc a:hover { background: var(--color-primary-50); color: var(--color-primary-700); }
+    .sg-layout { display: grid; grid-template-columns: 1fr; gap: var(--space-8); }
+    @media (min-width: 1024px) { .sg-layout { grid-template-columns: 220px 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- Hero del style guide -->
+<section style="background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900)); color: #fff; padding: var(--space-16) 0;">
+  <div class="container">
+    <p class="hero__eyebrow" style="color: var(--color-gold-300);">Sistema de diseno · v1.0</p>
+    <h1 style="color: #fff; font-size: var(--text-4xl); margin: var(--space-3) 0;">Centro Comunitario UACh</h1>
+    <p style="font-size: var(--text-lg); opacity: 0.92; max-width: 60ch;">Guia visual del sistema de diseno: paleta, tipografia, componentes y templates. Generado por <code>/gamma:designer</code>.</p>
+  </div>
+</section>
+
+<div class="container" style="padding: var(--space-12) 0;">
+  <div class="sg-layout">
+    <aside>
+      <nav class="sg-toc" aria-label="Tabla de contenidos">
+        <ul>
+          <li><a href="#colors">Color</a></li>
+          <li><a href="#typography">Tipografia</a></li>
+          <li><a href="#spacing">Espaciado</a></li>
+          <li><a href="#buttons">Botones</a></li>
+          <li><a href="#cards">Tarjetas</a></li>
+          <li><a href="#tldr">TL;DR Box</a></li>
+          <li><a href="#breadcrumb">Breadcrumb</a></li>
+          <li><a href="#faq">FAQ Accordion</a></li>
+          <li><a href="#table">Tabla comparativa</a></li>
+          <li><a href="#sidebar">Sidebar related</a></li>
+          <li><a href="#cta">CTA Banner</a></li>
+          <li><a href="#contact">Contact cards</a></li>
+          <li><a href="#templates">Templates</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+
+      <!-- COLOR -->
+      <section id="colors" class="sg-section">
+        <h2>Paleta de color</h2>
+        <p class="lead">Extraida del logo oficial. Teal principal + acentos gold/coral/lime evocan el caracter calido y comunitario del centro.</p>
+
+        <h3>Primary (teal)</h3>
+        <div class="sg-swatch-grid">
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-50);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">50</span><span class="sg-swatch__hex">#effaf8</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-100);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">100</span><span class="sg-swatch__hex">#d6f3ee</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-300);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">300</span><span class="sg-swatch__hex">#7dd1c4</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-500);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">500 ★</span><span class="sg-swatch__hex">#3cb4a8</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-600);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">600</span><span class="sg-swatch__hex">#2c9b8f</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-700);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">700</span><span class="sg-swatch__hex">#267d75</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-800);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">800</span><span class="sg-swatch__hex">#245f59</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-primary-900);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">900</span><span class="sg-swatch__hex">#1c4845</span></div></div>
+        </div>
+
+        <h3 style="margin-top: var(--space-8);">Accent gold (swoosh del logo)</h3>
+        <div class="sg-swatch-grid">
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-gold-100);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">100</span><span class="sg-swatch__hex">#fdf0c0</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-gold-300);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">300</span><span class="sg-swatch__hex">#f9d05e</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-gold-500);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">500 ★</span><span class="sg-swatch__hex">#f5c04d</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-gold-700);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">700</span><span class="sg-swatch__hex">#ac8225</span></div></div>
+        </div>
+
+        <h3 style="margin-top: var(--space-8);">Accent coral (ovalo rosado del logo)</h3>
+        <div class="sg-swatch-grid">
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-coral-100);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">100</span><span class="sg-swatch__hex">#fde2dd</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-coral-300);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">300</span><span class="sg-swatch__hex">#f7a499</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-coral-400);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">400 ★</span><span class="sg-swatch__hex">#f4a8a0</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-coral-600);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">600</span><span class="sg-swatch__hex">#d65a4a</span></div></div>
+        </div>
+
+        <h3 style="margin-top: var(--space-8);">Neutrales</h3>
+        <div class="sg-swatch-grid">
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-neutral-50);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">50</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-neutral-200);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">200</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-neutral-400);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">400</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-neutral-600);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">600</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-neutral-800);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">800 ★</span></div></div>
+          <div class="sg-swatch"><div class="sg-swatch__color" style="background: var(--color-neutral-900);"></div><div class="sg-swatch__meta"><span class="sg-swatch__name">900</span></div></div>
+        </div>
+      </section>
+
+      <!-- TYPOGRAPHY -->
+      <section id="typography" class="sg-section">
+        <h2>Tipografia</h2>
+        <p class="lead">Montserrat para headings (700) + Open Sans para cuerpo (400/600/700). Continuidad con el sitio existente, optima para contenido editorial largo.</p>
+
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-5xl</span><span style="font-size: var(--text-5xl); font-family: var(--font-display);">Aa Hero impacto</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-4xl</span><span style="font-size: var(--text-4xl); font-family: var(--font-display);">Aa H1 desktop</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-3xl</span><span style="font-size: var(--text-3xl); font-family: var(--font-display);">Aa H2</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-2xl</span><span style="font-size: var(--text-2xl); font-family: var(--font-display);">Aa H3</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-xl</span><span style="font-size: var(--text-xl); font-family: var(--font-display);">Aa H4</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-lg</span><span style="font-size: var(--text-lg);">Lead paragraph / TL;DR text</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-md</span><span style="font-size: var(--text-md);">Article body — texto editorial largo a 18px</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-base</span><span style="font-size: var(--text-base);">Cuerpo UI estandar a 16px — minimo accesible</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-sm</span><span style="font-size: var(--text-sm);">Meta, labels, footer</span></div>
+        <div class="sg-type-row"><span class="sg-type-row__token">--text-xs</span><span style="font-size: var(--text-xs);">Eyebrows, captions, breadcrumbs</span></div>
+      </section>
+
+      <!-- SPACING -->
+      <section id="spacing" class="sg-section">
+        <h2>Espaciado</h2>
+        <p class="lead">Escala modular 1.25 alineada con tipografia. Base 16px. Mobile: usar valores 2-8. Desktop: incluir 12-24.</p>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-1</span><span class="sg-spacing-row__bar" style="width: 4px;"></span><span>4px</span></div>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-2</span><span class="sg-spacing-row__bar" style="width: 8px;"></span><span>8px</span></div>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-4</span><span class="sg-spacing-row__bar" style="width: 16px;"></span><span>16px (base)</span></div>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-6</span><span class="sg-spacing-row__bar" style="width: 24px;"></span><span>24px</span></div>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-8</span><span class="sg-spacing-row__bar" style="width: 32px;"></span><span>32px</span></div>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-12</span><span class="sg-spacing-row__bar" style="width: 48px;"></span><span>48px</span></div>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-16</span><span class="sg-spacing-row__bar" style="width: 64px;"></span><span>64px</span></div>
+        <div class="sg-spacing-row"><span style="width: 80px;">--space-24</span><span class="sg-spacing-row__bar" style="width: 96px;"></span><span>96px (section)</span></div>
+      </section>
+
+      <!-- BUTTONS -->
+      <section id="buttons" class="sg-section">
+        <h2>Botones</h2>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.btn (default — primary)</p>
+          <a href="#" class="btn">Boton primario</a>
+          <a href="#" class="btn btn--lg">Boton grande</a>
+          <a href="#" class="btn btn--sm">Boton small</a>
+        </div>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.btn--outline</p>
+          <a href="#" class="btn btn--outline">Boton outline</a>
+        </div>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.btn--gold (CTA principal — conversion)</p>
+          <a href="#" class="btn btn--gold">Escribenos por WhatsApp</a>
+          <a href="#" class="btn btn--gold btn--lg">CTA grande</a>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section id="cards" class="sg-section">
+        <h2>Tarjetas</h2>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.card-grid--3 (areas / hubs / blog)</p>
+          <div class="card-grid card-grid--3">
+            <a href="#" class="card">
+              <div class="card__icon">📋</div>
+              <h3 class="card__title">Titulo de tarjeta</h3>
+              <p class="card__body">Descripcion concisa que explica el contenido de esta tarjeta y por que el usuario querria hacer click.</p>
+              <span class="card__link">Leer mas</span>
+            </a>
+            <a href="#" class="card">
+              <div class="card__icon card__icon--gold">💛</div>
+              <h3 class="card__title">Variante gold</h3>
+              <p class="card__body">La misma estructura, distinto color de icono para variedad visual.</p>
+              <span class="card__link">Leer mas</span>
+            </a>
+            <a href="#" class="card">
+              <div class="card__icon card__icon--coral">🌸</div>
+              <h3 class="card__title">Variante coral</h3>
+              <p class="card__body">Tercera variante para categoria distinta — siempre se nota la diferencia.</p>
+              <span class="card__link">Leer mas</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TL;DR -->
+      <section id="tldr" class="sg-section">
+        <h2>TL;DR Box</h2>
+        <p class="lead">Front-load para citabilidad IA. Va entre el H1 y el primer H2. Maximo 60 palabras.</p>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.tldr-box</p>
+          <aside class="tldr-box" role="note" aria-label="Resumen rapido">
+            <div class="tldr-box__label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              Resumen rapido
+            </div>
+            <p class="tldr-box__content">El tratamiento ambulatorio intensivo permite continuar con la vida cotidiana mientras se recibe atencion profesional varias veces por semana. En el CCC-UACh lo entregamos gratuito, voluntario y con enfoque biopsicosocial.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- BREADCRUMB -->
+      <section id="breadcrumb" class="sg-section">
+        <h2>Breadcrumb</h2>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.breadcrumb (con JSON-LD BreadcrumbList)</p>
+          <nav class="breadcrumb" aria-label="Ruta">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb__item"><a href="#">Recursos</a></li>
+              <li class="breadcrumb__item"><span class="breadcrumb__current">Tratamiento ambulatorio</span></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="sg-section">
+        <h2>FAQ Accordion</h2>
+        <p class="lead">HTML5 nativo (&lt;details&gt;/&lt;summary&gt;) — cero JS, perfectamente accesible.</p>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.faq</p>
+          <section class="faq">
+            <div class="faq__list">
+              <details class="faq__item">
+                <summary class="faq__question">¿El programa es realmente gratuito?</summary>
+                <div class="faq__answer"><div><p>Si. Es financiado por SENDA, Universidad Austral de Chile, Club de Leones y el Gobierno Regional de Los Lagos. No pagas nada por la atencion clinica.</p></div></div>
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">¿Necesito tener diagnostico previo?</summary>
+                <div class="faq__answer"><div><p>No. La primera consulta es de orientacion. El equipo evalua tu situacion y, si corresponde, te incorpora al programa.</p></div></div>
+              </details>
+              <details class="faq__item">
+                <summary class="faq__question">¿Atienden a familiares de personas con consumo?</summary>
+                <div class="faq__answer"><div><p>Si. La terapia familiar es parte central del modelo biopsicosocial. Puedes pedir orientacion para ti aunque la persona con consumo aun no quiera consultar.</p></div></div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- TABLE -->
+      <section id="table" class="sg-section">
+        <h2>Tabla comparativa</h2>
+        <p class="lead">Stack en mobile (cada celda con su label). Optima para citabilidad IA.</p>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.comparison-table</p>
+          <div class="comparison-table">
+            <table>
+              <thead>
+                <tr><th>Criterio</th><th>Ambulatorio (CCC UACH)</th><th>Internacion</th></tr>
+              </thead>
+              <tbody>
+                <tr><td data-label="Criterio">Residencia</td><td data-label="Ambulatorio">En casa</td><td data-label="Internacion">En el centro</td></tr>
+                <tr><td data-label="Criterio">Frecuencia</td><td data-label="Ambulatorio">3-5 dias/semana</td><td data-label="Internacion">24/7</td></tr>
+                <tr><td data-label="Criterio">Costo</td><td data-label="Ambulatorio">Gratuito</td><td data-label="Internacion">Variable</td></tr>
+                <tr><td data-label="Criterio">Trabajo/estudios</td><td data-label="Ambulatorio">Compatible</td><td data-label="Internacion">Requiere pausa</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIDEBAR RELATED -->
+      <section id="sidebar" class="sg-section">
+        <h2>Sidebar related</h2>
+        <p class="lead">Links a lecturas relacionadas inyectados por <code>/gamma:linker</code>.</p>
+        <div class="sg-component-preview" style="max-width: 320px;">
+          <p class="sg-component-label">.sidebar-related</p>
+          <div class="sidebar-related">
+            <h2 class="sidebar-related__title">Lecturas relacionadas</h2>
+            <ul class="sidebar-related__list">
+              <li class="sidebar-related__item"><a href="#" class="sidebar-related__link">Modelo biopsicosocial <span class="sidebar-related__hint">Como integramos cuerpo, mente y comunidad</span></a></li>
+              <li class="sidebar-related__item"><a href="#" class="sidebar-related__link">Para familias <span class="sidebar-related__hint">Cuando un ser querido consume</span></a></li>
+              <li class="sidebar-related__item"><a href="#" class="sidebar-related__link">Programa SENDA <span class="sidebar-related__hint">Convenio y financiamiento</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="cta" class="sg-section">
+        <h2>CTA Banner</h2>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.cta-banner (full)</p>
+          <div class="cta-banner">
+            <div class="cta-banner__inner">
+              <h2 class="cta-banner__title">¿Necesitas orientacion?</h2>
+              <p class="cta-banner__subtitle">Atencion ambulatoria gratuita en Puerto Montt. La primera consulta no compromete a ingresar al programa.</p>
+              <div class="cta-banner__actions">
+                <a href="#" class="btn btn--gold btn--lg">Escribenos por WhatsApp</a>
+                <a href="#" class="btn btn--outline">Conoce el centro</a>
+              </div>
+              <div class="cta-banner__contact">
+                <span>📞 <a href="tel:+56652227817">+56 65 222 7817</a></span>
+                <span>📍 27 de Abril 565, Puerto Montt</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.cta-banner--compact (sidebar)</p>
+          <div style="max-width: 320px;">
+            <div class="cta-banner cta-banner--compact">
+              <div class="cta-banner__inner">
+                <h2 class="cta-banner__title">Habla con nosotros</h2>
+                <p class="cta-banner__subtitle">Atencion gratuita. Sin compromiso.</p>
+                <div class="cta-banner__actions">
+                  <a href="#" class="btn btn--gold btn--sm">WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT CARDS -->
+      <section id="contact" class="sg-section">
+        <h2>Contact cards</h2>
+        <div class="sg-component-preview">
+          <p class="sg-component-label">.contact-cards</p>
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-card__icon">📞</div>
+              <div>
+                <p class="contact-card__title">Telefono</p>
+                <p class="contact-card__value"><a href="tel:+56652227817">+56 65 222 7817</a></p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card__icon">💬</div>
+              <div>
+                <p class="contact-card__title">WhatsApp</p>
+                <p class="contact-card__value"><a href="https://wa.me/56941638395" target="_blank" rel="noopener">+56 9 4163 8395</a></p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card__icon">📍</div>
+              <div>
+                <p class="contact-card__title">Direccion</p>
+                <p class="contact-card__value">27 de Abril 565, Puerto Montt</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card__icon">✉</div>
+              <div>
+                <p class="contact-card__title">Email</p>
+                <p class="contact-card__value"><a href="mailto:contacto@ccc-uach.cl">contacto@ccc-uach.cl</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEMPLATES -->
+      <section id="templates" class="sg-section" style="border-bottom: 0;">
+        <h2>Templates de pagina</h2>
+        <p class="lead">Layouts predefinidos por nivel de pagina SEO. <code>/gamma:publish-to-site</code> usa estos como base.</p>
+        <div class="card-grid card-grid--3">
+          <a href="./templates/home.html" class="card">
+            <div class="card__icon">🏠</div>
+            <h3 class="card__title">home.html (L1)</h3>
+            <p class="card__body">Hero + 4 areas + diferenciadores + CTA. Solo para la homepage.</p>
+            <span class="card__link">Ver template</span>
+          </a>
+          <a href="./templates/hub.html" class="card">
+            <div class="card__icon card__icon--gold">🗂</div>
+            <h3 class="card__title">hub.html (L2)</h3>
+            <p class="card__body">Intro + sub-cards a paginas hijas + FAQ + CTA. Para hubs/pillars.</p>
+            <span class="card__link">Ver template</span>
+          </a>
+          <a href="./templates/pillar.html" class="card">
+            <div class="card__icon card__icon--coral">📄</div>
+            <h3 class="card__title">pillar.html (L3)</h3>
+            <p class="card__body">Article body + sidebar related + CTA compacta. El layout mas usado.</p>
+            <span class="card__link">Ver template</span>
+          </a>
+          <a href="./templates/longtail.html" class="card">
+            <div class="card__icon card__icon--lime">📌</div>
+            <h3 class="card__title">longtail.html (L4)</h3>
+            <p class="card__body">Article compacto sin sidebar. Para articulos especificos long-tail.</p>
+            <span class="card__link">Ver template</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer style="background: var(--color-primary-900); color: rgba(255,255,255,0.85); padding: var(--space-8) 0; text-align: center;">
+  <div class="container">
+    <p style="margin: 0; font-size: var(--text-sm);">Sistema de diseno generado por <code>/gamma:designer</code> · 2026-05-25 · Centro Comunitario UACh</p>
+  </div>
+</footer>
+
+</body>
+</html>
