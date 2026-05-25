@@ -790,8 +790,8 @@
 /* ==================== PAGE HEADER (hero compacto institucional) ==================== */
 .page-header {
   background:
-    linear-gradient(135deg, rgba(36, 95, 89, 0.92), rgba(28, 72, 69, 0.95)),
-    url('/assets/img/banner-horizontal.jpg') center/cover no-repeat;
+    linear-gradient(135deg, rgba(36, 95, 89, 0.88), rgba(28, 72, 69, 0.94)),
+    url('/assets/img/noticia-intendente.jpg') center 30%/cover no-repeat;
   color: #fff;
   padding: var(--space-16) 0 var(--space-12);
   position: relative;
